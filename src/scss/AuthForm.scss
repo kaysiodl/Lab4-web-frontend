@@ -1,0 +1,130 @@
+#auth, #registration-page, #sign-up-form {
+  max-width: 450px;
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 15px;
+  background: linear-gradient(145deg, #ffe4e1, #fff0f5);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+
+  h2 {
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    color: #8b5e5e;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .MuiTextField-root {
+      width: 100%;
+
+      input {
+        width: 100%;
+        font-size: 1.1rem;
+        padding: 14px;
+        border-radius: 10px;
+        border: 1px solid #f4c0c0;
+        background-color: #fff0f5;
+
+        &:focus {
+          outline: none;
+          border-color: #f4a1a1;
+          box-shadow: 0 0 5px rgba(244, 161, 161, 0.5);
+        }
+      }
+    }
+
+    .error-message {
+      color: #c23b3b;
+      font-size: 0.95rem;
+      text-align: left;
+      margin-top: 6px; /* увеличенный margin */
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      background-color: #f4a1a1;
+      color: #fff;
+      font-size: 1.15rem;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #e88888;
+      }
+
+      &:disabled {
+        background-color: #f4c0c0;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  button {
+    background-color: #f4a1a1;
+    color: #fff;
+    margin-top: 10px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background-color: #e88888;
+    }
+
+    &:disabled {
+      background-color: #f4c0c0;
+      cursor: not-allowed;
+    }
+  }
+
+
+  .secondary-button {
+    margin-top: 20px;
+    background: none;
+    border: none;
+    color: #8b5e5e;
+    cursor: pointer;
+    font-size: 1rem;
+    text-decoration: underline;
+
+    &:hover {
+      color: #a06060;
+    }
+  }
+}
+
+/* Адаптив для мобильных */
+@media (max-width: 500px) {
+  #auth, #registration-page, #sign-up-form {
+    margin: 30px 15px;
+    padding: 20px;
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    form {
+      .MuiTextField-root {
+        input {
+          font-size: 1rem;
+          padding: 12px;
+        }
+      }
+
+      button[type="submit"] {
+        font-size: 1rem;
+        padding: 12px;
+      }
+    }
+  }
+}
