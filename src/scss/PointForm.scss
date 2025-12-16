@@ -133,7 +133,6 @@
   }
 }
 
-/* Radio компонент стилизация */
 .radio-group {
   display: flex;
   flex-wrap: wrap;
@@ -163,7 +162,6 @@
   }
 }
 
-/* Таблица результатов */
 .MuiTableContainer-root {
   margin-top: 30px;
   border-radius: 12px;
@@ -202,7 +200,6 @@
   }
 }
 
-/* Canvas стилизация */
 canvas {
   display: block;
   margin: 0 auto;
@@ -212,7 +209,6 @@ canvas {
   cursor: crosshair;
 }
 
-/* Адаптив для мобильных */
 @media (max-width: 768px) {
   #point {
     margin: 20px 15px;
