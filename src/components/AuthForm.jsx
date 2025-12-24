@@ -1,7 +1,7 @@
 import '../scss/AuthForm.scss'
 import { TextField, Button } from "@mui/material";
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import { authSchema } from "../features.auth/authValidation";
+import { authSchema } from "../features/auth/authValidation";
 import {useNavigate} from "react-router-dom";
 
 export default function AuthForm({ onSubmit, error }) {

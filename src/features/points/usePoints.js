@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {sendPointService, getPointsService, clearPointsService} from "../../features.auth/service";
+import {sendPointService, getPointsService, clearPointsService} from "./service";
 
 export function usePoints() {
     const [points, setPoints] = useState([]);
@@ -32,13 +32,13 @@ export function usePoints() {
     const clearPoints = async () => {
         setError("");
         try {
-            const response = await clearPointsService();
-            if (!response.ok) throw new Error("Ошибка при очистке точек");
+            await clearPointsService();
             setPoints([]);
         } catch (e) {
             setError(e.message);
         }
     };
+
 
     return {points, sendPoint, getPoints, clearPoints, error};
 }

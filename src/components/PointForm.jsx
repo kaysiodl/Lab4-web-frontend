@@ -1,7 +1,7 @@
 import {Formik, Form, Field, ErrorMessage} from "formik";
 import {TextField, Button} from "@mui/material";
 import {Radio} from "./Radio";
-import {pointSchema} from "../hooks/points/pointsValidation";
+import {pointSchema} from "../features/points/pointsValidation";
 import {updateLabels} from "../canvas/canvas";
 import {useDispatch, useSelector} from "react-redux";
 import {setR} from "../store/rSlice";
@@ -18,7 +18,7 @@ export function PointForm({onSubmit}) {
                 initialValues={{
                     x: 0,
                     y: "",
-                    r: 1
+                    r: r
                 }}
                 validationSchema={pointSchema}
                 onSubmit={(values, {setSubmitting}) => {

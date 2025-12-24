@@ -1,7 +1,7 @@
 import {BackBtn} from "../components/Back";
 import SignUpForm from "../components/SignUpForm";
 import '../scss/AuthForm.scss'
-import {useAuth} from "../features.auth/useAuth";
+import {useAuth} from "../features/auth/useAuth";
 import {useNavigate} from "react-router-dom";
 
 export default function RegistrationPage() {

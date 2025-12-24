@@ -9,6 +9,6 @@ export function BackBtn() {
     }
 
     return (
-        <Button onClick={handleBackClick}>Назад</Button>
+        <Button className="back-button" onClick={handleBackClick}>Назад</Button>
     );
 }

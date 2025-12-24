@@ -1,7 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import '../scss/AuthForm.scss'
 import { TextField, Button } from "@mui/material";
-import {registrationSchema} from "../features.auth/authValidation";
+import {registrationSchema} from "../features/auth/authValidation";
 
 export default function SignUpForm({ onSubmit, error }) {
     return (

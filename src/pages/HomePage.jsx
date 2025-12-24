@@ -3,7 +3,7 @@ import {PointForm} from "../components/PointForm";
 import {Canvas} from "../components/Canvas";
 import {useEffect, useState} from "react";
 import ResultsTable from "../components/ResultsTable";
-import {usePoints} from "../hooks/points/usePoints";
+import {usePoints} from "../features/points/usePoints";
 import {Button} from "@mui/material";
 import {useNavigate} from "react-router-dom";
 import '../scss/PointForm.scss'
@@ -19,6 +19,10 @@ export default function HomePage() {
 
     const handleCanvasClick = (x, y, r) => {
         sendPoint(x, y, r);
+    };
+
+    const handleClear = () => {
+        clearPoints().then(() => setPoints([]));
     };
 
     return (
@@ -37,10 +41,7 @@ export default function HomePage() {
                     onClick={handleCanvasClick}/>
             <PointForm onSubmit={sendPoint}/>
             <ResultsTable points={points}/>
-            <Button onClick={async () => {
-                await clearPoints();
-                window.location.reload();
-            }}>
+            <Button onClick={clearPoints}>
                 Очистить точки
             </Button>
         </div>

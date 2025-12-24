@@ -4,7 +4,7 @@ import HomePage from "./pages/HomePage";
 import {Routes, Route} from "react-router-dom";
 import RegistrationPage from "./pages/RegistrationPage";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import {ProtectedRoute} from "./features.auth/ProtectedRoute";
+import {ProtectedRoute} from "./features/auth/ProtectedRoute";
 
 const theme = createTheme({
     palette: {

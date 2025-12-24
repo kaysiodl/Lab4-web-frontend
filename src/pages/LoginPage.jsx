@@ -1,6 +1,6 @@
 import '../scss/AuthForm.scss'
 import AuthForm from '../components/AuthForm';
-import {useAuth} from "../features.auth/useAuth";
+import {useAuth} from "../features/auth/useAuth";
 import {useNavigate} from "react-router-dom";
 
 export default function LoginPage() {
