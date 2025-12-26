@@ -11,7 +11,6 @@ export function usePoints() {
         setError("");
         try {
             const point = await sendPointService(x, y, r);
-            await getPoints();
             setCanvasPoints(prev => [...prev, point]);
             return true;
         } catch (e) {

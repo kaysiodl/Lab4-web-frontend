@@ -4,19 +4,29 @@ import {
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import { usePoints } from "../features/points/usePoints";
+import FiltersPanel from "./FiltersPanel";
 
 export default function ResultsTable({points, total, getPoints}) {
     const [sort, setSort] = useState({ field: "id", dir: "desc" });
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
+    const [filters, setFilters] = useState([]);
 
     useEffect(() => {
-        getPoints({
+        const params = {
             page,
             size: rowsPerPage,
             sort: `${sort.field},${sort.dir}`
+        };
+
+        filters.forEach(f => {
+            if (!f.value) return;
+            params[`filter.${f.field}.${f.op}`] = f.value;
         });
-    }, [page, rowsPerPage, sort]);
+
+        getPoints(params);
+    }, [page, rowsPerPage, sort, filters]);
+
 
     const toggleSort = (field) => {
         setSort(prev => {
@@ -32,7 +42,6 @@ export default function ResultsTable({points, total, getPoints}) {
             };
         });
     };
-
 
     return (
         <Paper>
@@ -101,6 +110,12 @@ export default function ResultsTable({points, total, getPoints}) {
                 }}
                 rowsPerPageOptions={[5, 10, 20]}
             />
+
+            <FiltersPanel
+                filters={filters}
+                setFilters={setFilters}
+            />
+
         </Paper>
     );
 }
