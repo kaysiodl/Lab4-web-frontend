@@ -9,20 +9,20 @@ import {useNavigate} from "react-router-dom";
 import '../scss/PointForm.scss'
 
 export default function HomePage() {
-    const {points, getPoints, sendPoint, clearPoints} = usePoints();
+    const {points, total, getPoints, canvasPoints, sendPoint, clearPoints, getAllCanvasPoints} = usePoints();
     const navigate = useNavigate();
-
 
     useEffect(() => {
         getPoints();
+        getAllCanvasPoints();
     }, []);
 
     const handleCanvasClick = (x, y, r) => {
+        if (!sessionStorage.getItem("sessionId")) {
+            navigate("/sign-in");
+            return;
+        }
         sendPoint(x, y, r);
-    };
-
-    const handleClear = () => {
-        clearPoints().then(() => setPoints([]));
     };
 
     return (
@@ -37,10 +37,10 @@ export default function HomePage() {
                     Выйти из аккаунта
                 </Button>
             </form>
-            <Canvas points={points}
+            <Canvas points={canvasPoints}
                     onClick={handleCanvasClick}/>
             <PointForm onSubmit={sendPoint}/>
-            <ResultsTable points={points}/>
+            <ResultsTable points={points} total={total} getPoints={getPoints}/>
             <Button onClick={clearPoints}>
                 Очистить точки
             </Button>

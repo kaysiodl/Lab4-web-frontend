@@ -10,8 +10,17 @@ export async function sendResultsApi(x, y, r){
     });
 }
 
-export async function getUserResultsApi() {
-    return await request("/api/check", {
+export async function getUserResultsApi(params = {}) {
+    return await request("/api/check?" + new URLSearchParams(params), {
+        method: "GET",
+        headers: {
+            "X-Session-Id": sessionStorage.getItem("sessionId")
+        }
+    });
+}
+
+export async function getAllResultsApi() {
+    return await request("/api/check/all", {
         method: "GET",
         headers: {
             "X-Session-Id": sessionStorage.getItem("sessionId")
